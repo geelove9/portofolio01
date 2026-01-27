@@ -1,0 +1,278 @@
+/* --- 1. IMPORT FONT --- */
+/* Mengambil font 'Poppins' dari Google Fonts agar tulisan terlihat modern dan cantik */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* --- 2. VARIABEL WARNA (ROOT) --- */
+/* Kita simpan warna di sini. Kalau mau ganti tema, cukup ubah di sini saja */
+:root {
+    --warna-utama: #8e44ad;      /* Ungu gelap untuk elemen penting (seperti Header) */
+    --warna-sekunder: #9b59b6;   /* Ungu lebih terang untuk variasi */
+    --warna-aksen: #ff6b81;      /* Pink cerah untuk tombol dan highlight (cantik & pop!) */
+    --warna-teks: #333333;       /* Abu-abu gelap untuk tulisan (lebih nyaman dibaca daripada hitam pekat) */
+    --warna-latar: #fff0f3;      /* Pink sangat muda (hampir putih) untuk latar belakang agar bersih */
+    --putih: #ffffff;            /* Warna putih murni */
+    --bayangan: 0 5px 15px rgba(0,0,0,0.1); /* Efek bayangan halus agar elemen terlihat 'melayang' */
+}
+
+/* --- 3. RESET DASAR --- */
+* {
+    margin: 0;          /* Menghapus jarak luar bawaan browser */
+    padding: 0;         /* Menghapus jarak dalam bawaan browser */
+    box-sizing: border-box; /* Memastikan ketebalan border tidak menambah ukuran elemen */
+}
+
+html {
+    scroll-behavior: smooth; /* Membuat efek gulir menjadi halus saat link navigasi diklik */
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Menggunakan jenis font Poppins */
+    background-color: var(--warna-latar); /* Menggunakan warna latar pink muda */
+    color: var(--warna-teks); /* Mengatur warna teks utama */
+    line-height: 1.6; /* Memberi jarak antar baris tulisan agar enak dibaca */
+}
+
+/* --- 4. NAVIGASI (HEADER) --- */
+header {
+    background-color: var(--putih); /* Latar belakang navigasi putih bersih */
+    box-shadow: var(--bayangan);    /* Memberi bayangan di bawah navigasi */
+    position: fixed;    /* Membuat navigasi tetap menempel di atas (sticky) saat discroll */
+    width: 100%;        /* Lebar navigasi memenuhi layar */
+    top: 0;             /* Menempel di posisi paling atas */
+    z-index: 1000;      /* Memastikan navigasi selalu berada di atas elemen lain (tidak tertutup) */
+}
+
+nav {
+    display: flex;      /* Mengaktifkan Flexbox untuk menata isi navigasi */
+    justify-content: space-between; /* Membuat Logo di kiri dan Menu di kanan (jarak sejauh mungkin) */
+    align-items: center; /* Memastikan posisi vertikal rata tengah */
+    max-width: 1200px;  /* Membatasi lebar maksimal konten agar tidak terlalu melebar di layar besar */
+    margin: 0 auto;     /* Membuat konten navigasi berada di tengah layar laptop */
+    padding: 1rem 2rem; /* Memberi ruang napas (padding) atas-bawah dan kiri-kanan */
+}
+
+.logo {
+    font-size: 1.5rem;  /* Ukuran huruf logo besar */
+    font-weight: 700;   /* Menebalkan huruf logo */
+    color: var(--warna-utama); /* Warna ungu */
+}
+
+.logo span {
+    color: var(--warna-aksen); /* Warna pink khusus untuk teks "Porto" */
+}
+
+nav ul {
+    list-style: none;   /* Menghilangkan titik (bullet points) pada list menu */
+    display: flex;      /* Membuat menu berjejer ke samping (horizontal) */
+    gap: 20px;          /* Memberi jarak antar menu */
+}
+
+nav ul li a {
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    color: var(--warna-teks); /* Warna teks menu standar */
+    font-weight: 600;      /* Sedikit tebal agar jelas */
+    transition: 0.3s;      /* Memberi efek animasi halus saat warna berubah */
+}
+
+nav ul li a:hover {
+    color: var(--warna-aksen); /* Mengubah warna menjadi Pink saat mouse diarahkan (hover) */
+}
+
+/* --- 5. UTILITIES (KELAS BANTUAN) --- */
+.container {
+    max-width: 1100px;  /* Lebar maksimal konten utama */
+    margin: 0 auto;     /* Posisi tengah */
+    padding: 100px 20px 50px; /* Padding atas besar (100px) agar tidak tertutup navigasi */
+}
+
+h2 {
+    text-align: center; /* Judul bagian rata tengah */
+    font-size: 2.5rem;  /* Ukuran huruf besar */
+    margin-bottom: 2rem; /* Jarak ke bawah */
+    color: var(--warna-utama); /* Warna ungu */
+}
+
+/* --- 6. BAGIAN HERO (BERANDA) --- */
+.hero {
+    height: 100vh;      /* Tinggi memenuhi 100% layar laptop (Full Screen) */
+    display: flex;      /* Menggunakan Flexbox */
+    align-items: center; /* Rata tengah secara vertikal */
+    justify-content: center; /* Rata tengah secara horizontal */
+    padding: 0 10%;     /* Memberi jarak kiri kanan */
+    /* Membuat latar belakang gradasi warna Ungu ke Pink yang cantik */
+    background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%);
+    margin-top: 60px;   /* Jarak dari atas agar tidak tertutup navbar */
+}
+
+.hero-content {
+    flex: 1;            /* Mengambil porsi 1 bagian ruang (sebelah kiri) */
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;  /* Ukuran nama "Geelove9" sangat besar */
+    color: var(--warna-utama); /* Warna ungu */
+    margin: 10px 0;     /* Jarak atas bawah */
+}
+
+.hero-content p {
+    font-size: 1.1rem;  /* Ukuran teks deskripsi */
+    margin-bottom: 30px; /* Jarak ke tombol */
+    max-width: 500px;   /* Membatasi lebar teks agar tidak terlalu panjang */
+}
+
+.btn-hero {
+    display: inline-block; /* Agar tombol memiliki dimensi */
+    padding: 12px 30px;    /* Ukuran tombol */
+    background-color: var(--warna-aksen); /* Warna tombol Pink */
+    color: var(--putih);   /* Tulisan tombol putih */
+    border-radius: 50px;   /* Membuat sudut tombol membulat (pil) */
+    text-decoration: none; /* Hilangkan garis bawah */
+    font-weight: 600;      /* Tulisan tebal */
+    box-shadow: 0 5px 15px rgba(255, 107, 129, 0.4); /* Bayangan pink bercahaya */
+    transition: 0.3s;      /* Animasi halus */
+}
+
+.btn-hero:hover {
+    background-color: var(--warna-utama); /* Berubah ungu saat di-hover */
+    transform: translateY(-3px); /* Tombol naik sedikit saat disentuh mouse */
+}
+
+.hero-logo {
+    flex: 1;            /* Mengambil porsi 1 bagian ruang (sebelah kanan) */
+    text-align: center; /* Gambar rata tengah di areanya */
+}
+
+.hero-logo img {
+    width: 350px;       /* Lebar gambar profil */
+    border-radius: 50%; /* Membuat gambar jadi bulat lingkaran */
+    border: 5px solid var(--putih); /* Bingkai putih di sekeliling gambar */
+    box-shadow: var(--bayangan); /* Bayangan agar gambar terlihat timbul */
+    animation: float 3s ease-in-out infinite; /* Efek animasi melayang */
+}
+
+/* Animasi sederhana untuk membuat foto profil naik turun */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* --- 7. BAGIAN ABOUT --- */
+.about-content {
+    text-align: center; /* Teks rata tengah */
+    max-width: 800px;   /* Lebar maksimal teks */
+    margin: 0 auto;     /* Posisi tengah */
+    background: var(--putih); /* Kotak putih di belakang teks */
+    padding: 40px;      /* Jarak dalam kotak */
+    border-radius: 20px; /* Sudut kotak membulat */
+    box-shadow: var(--bayangan); /* Bayangan kotak */
+}
+
+.about-content strong {
+    color: var(--warna-aksen); /* Memberi warna pink pada kata-kata penting (bold) */
+}
+
+/* --- 8. BAGIAN PROYEK (GRID SYSTEM) --- */
+.bg-light {
+    background-color: #fff; /* Latar putih selang-seling */
+}
+
+.proyek-grid {
+    display: grid;      /* Mengaktifkan mode Grid System */
+    /* Ini perintah ajaib: membuat kolom otomatis menyesuaikan layar (responsif) */
+    /* Minimal lebar kartu 300px, jika layar lebar, kartu akan berjejer */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;          /* Jarak antar kartu proyek */
+}
+
+.proyek-card {
+    background: var(--putih); /* Warna kartu putih */
+    border-radius: 15px;      /* Sudut kartu membulat */
+    overflow: hidden;         /* Agar gambar tidak keluar dari sudut bulat */
+    box-shadow: var(--bayangan); /* Bayangan kartu */
+    transition: 0.3s;         /* Animasi halus */
+    border: 1px solid #ffeef0; /* Garis tipis pink pudar */
+    text-decoration: none;     /* Hapus garis bawah link */
+    color: inherit;            /* Warna teks mengikuti induk */
+}
+
+.proyek-card:hover {
+    transform: translateY(-10px); /* Kartu naik ke atas saat di-hover */
+}
+
+.proyek-card img {
+    width: 100%;        /* Gambar memenuhi lebar kartu */
+    height: 200px;      /* Tinggi gambar tetap */
+    object-fit: cover;  /* Memotong gambar agar pas tanpa gepeng */
+}
+
+.proyek-info {
+    padding: 20px;      /* Jarak teks di dalam kartu */
+    text-align: center; /* Teks rata tengah */
+}
+
+.proyek-info h3 {
+    color: var(--warna-utama); /* Judul proyek warna ungu */
+    margin-bottom: 5px;
+}
+
+/* --- 9. BAGIAN MEDSOS --- */
+.medsos-list {
+    display: flex;      /* Flexbox agar ikon berjejer */
+    justify-content: center; /* Rata tengah */
+    gap: 30px;          /* Jarak antar ikon */
+    flex-wrap: wrap;    /* Turun ke bawah jika layar sempit */
+}
+
+.medsos-item {
+    display: flex;      /* Flexbox vertikal (ikon atas, teks bawah) */
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--warna-teks);
+    transition: 0.3s;
+}
+
+.medsos-item img {
+    width: 60px;        /* Ukuran ikon medsos */
+    margin-bottom: 10px;
+}
+
+.medsos-item:hover {
+    transform: scale(1.1); /* Efek membesar saat di-hover */
+    color: var(--warna-aksen); /* Teks berubah pink */
+}
+
+/* --- 10. FOOTER --- */
+footer {
+    background-color: var(--warna-utama); /* Latar ungu gelap */
+    color: var(--putih);    /* Teks putih */
+    text-align: center;     /* Rata tengah */
+    padding: 20px;          /* Jarak dalam */
+    margin-top: 50px;       /* Jarak dari konten sebelumnya */
+}
+
+/* --- 11. RESPONSIF (HP) --- */
+/* Kode di bawah ini hanya berjalan jika layar lebih kecil dari 768px (Tablet/HP) */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Menu jadi vertikal */
+        gap: 15px;
+    }
+    
+    .hero {
+        flex-direction: column-reverse; /* Gambar di atas, teks di bawah */
+        text-align: center;
+        height: auto;       /* Tinggi menyesuaikan isi */
+        padding: 120px 20px 50px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem; /* Ukuran font diperkecil di HP */
+    }
+
+    .hero-logo img {
+        width: 250px;   /* Gambar diperkecil di HP */
+        margin-bottom: 30px;
+    }
+}
